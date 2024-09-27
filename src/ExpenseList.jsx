@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function ExpenseList({ expenses, updateExpense, filter, setFilter }) {
+export function ExpenseList({ expenses, updateExpense, filter, setFilter, currency }) {
   const filteredExpenses = expenses.filter(expense => {
     return (
       (!filter.category || expense.category === filter.category) &&
@@ -44,19 +44,19 @@ export function ExpenseList({ expenses, updateExpense, filter, setFilter }) {
       <table className="min-w-full bg-white">
         <thead>
           <tr>
-            <th className="py-2 px-4 border-b">Amount</th>
-            <th className="py-2 px-4 border-b">Date</th>
-            <th className="py-2 px-4 border-b">Category</th>
-            <th className="py-2 px-4 border-b">Actions</th>
+            <th className="py-2 px-4 border-b text-center">Amount</th>
+            <th className="py-2 px-4 border-b text-center">Date</th>
+            <th className="py-2 px-4 border-b text-center">Category</th>
+            <th className="py-2 px-4 border-b text-center">Actions</th>
           </tr>
         </thead>
         <tbody>
           {filteredExpenses.map(expense => (
             <tr key={expense.id}>
-              <td className="py-2 px-4 border-b">${expense.amount}</td>
-              <td className="py-2 px-4 border-b">{expense.date}</td>
-              <td className="py-2 px-4 border-b">{expense.category}</td>
-              <td className="py-2 px-4 border-b">
+              <td className="py-2 px-4 border-b text-center">{currency}{expense.amount}</td>
+              <td className="py-2 px-4 border-b text-center">{expense.date}</td>
+              <td className="py-2 px-4 border-b text-center">{expense.category}</td>
+              <td className="py-2 px-4 border-b text-center">
                 <button
                   className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline"
                   onClick={() => {

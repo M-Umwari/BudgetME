@@ -4,6 +4,7 @@ import { ExpenseList } from './ExpenseList';
 import { ExpenseSummary } from './ExpenseSummary';
 import { BudgetLimits } from './BudgetLimits';
 
+
 const initialState = {
   expenses: [],
   budgetLimits: {}
@@ -33,6 +34,7 @@ function reducer(state, action) {
 export default function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [filter, setFilter] = useState({ category: '', startDate: '', endDate: '' });
+  const [currency, setCurrency] = useState('RWF'); 
 
   const addExpense = (expense) => {
     dispatch({ type: 'ADD_EXPENSE', payload: { ...expense, id: Date.now() } });
@@ -51,7 +53,8 @@ export default function App() {
       <h1 className="text-3xl font-bold mb-6">BUDGET-ME </h1>
       <div className="grid grid-cols-1 gap-6">
         <div className="col-span-1"> 
-          <ExpenseSummary expenses={state.expenses} budgetLimits={state.budgetLimits} />
+          <ExpenseSummary expenses={state.expenses} budgetLimits={state.budgetLimits} currency={currency} setCurrency={setCurrency}  />
+
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6"> 
           <div>
@@ -67,6 +70,7 @@ export default function App() {
         updateExpense={updateExpense}
         filter={filter}
         setFilter={setFilter}
+        currency={currency}
       />
     </div>
   );

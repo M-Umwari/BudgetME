@@ -6,7 +6,7 @@ import { Balance } from './Balance';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export function ExpenseSummary({ expenses, budgetLimits }) {
+export function ExpenseSummary({ expenses, budgetLimits,currency, setCurrency }) {
   const categoryTotals = expenses.reduce((acc, expense) => {
     acc[expense.category] = (acc[expense.category] || 0) + parseFloat(expense.amount);
     return acc;
@@ -55,14 +55,14 @@ export function ExpenseSummary({ expenses, budgetLimits }) {
           if (limit && total > limit * 0.8) {
             return (
               <div key={category} className="text-red-500">
-                Warning: {category} expenses (${total}) are nearing the budget limit (${limit})
+                Warning: {category} expenses ({currency}{total}) are nearing the budget limit ({currency}{limit})
               </div>
             );
           }
           return null;
         })}
       </div>
-      <Balance expenses={expenses} budgetLimits={budgetLimits} />
+      <Balance expenses={expenses} budgetLimits={budgetLimits} currency={currency} setCurrency={setCurrency}/>
     </div>
   );
 }
