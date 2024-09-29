@@ -3,8 +3,9 @@ import React, { useState, useMemo } from 'react';
 export function Balance({ expenses, currency, setCurrency }) {
   const [initialBalance, setInitialBalance] = useState(0);
 
+  // Ensure expense.amount is converted to a number before adding
   const totalExpenses = useMemo(() => 
-    expenses.reduce((total, expense) => total + expense.amount, 0), 
+    expenses.reduce((total, expense) => total + Number(expense.amount), 0), 
     [expenses]
   );
 
@@ -28,9 +29,10 @@ export function Balance({ expenses, currency, setCurrency }) {
             padding: '10px',
             border: '1px solid #ccc',
             borderRadius: '4px',
-            backgroundColor: '#f5f5f5',
+            backgroundColor: '#d69c66',
             fontSize: '1rem',
             marginBottom: '16px',
+            
           }}
         />
         

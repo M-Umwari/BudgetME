@@ -1,8 +1,8 @@
 import React, { useReducer, useState } from 'react';
-import { ExpenseForm } from './ExpenseForm';
-import { ExpenseList } from './ExpenseList';
-import { ExpenseSummary } from './ExpenseSummary';
-import { BudgetLimits } from './BudgetLimits';
+import { ExpenseForm } from './components/ExpenseForm';
+import { ExpenseList } from './components/ExpenseList';
+import { ExpenseSummary } from './components/ExpenseSummary';
+import { BudgetLimits } from './components/BudgetLimits';
 
 
 const initialState = {
@@ -50,7 +50,7 @@ export default function App() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6">BUDGET-ME </h1>
+      <h1 className="text-3xl font-bold mb-6 text-red-700">BUDGET-ME </h1>
       <div className="grid grid-cols-1 gap-6">
         <div className="col-span-1"> 
           <ExpenseSummary expenses={state.expenses} budgetLimits={state.budgetLimits} currency={currency} setCurrency={setCurrency}  />

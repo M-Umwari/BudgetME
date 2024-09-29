@@ -14,7 +14,7 @@ export function BudgetLimits({ setBudgetLimit, budgetLimits }) {
   };
 
   return (
-    <div className="bg-white rounded px-8 pt-6 pb-8 mb-4">
+    <div className="sub-container rounded px-8 pt-6 pb-8 mb-4">
       <h2 className="text-2xl font-bold mb-4">Set Budget Limits</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">

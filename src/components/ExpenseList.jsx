@@ -41,7 +41,7 @@ export function ExpenseList({ expenses, updateExpense, filter, setFilter, curren
           />
         </div>
       </div>
-      <table className="min-w-full bg-white">
+      <table className="min-w-full sub-container">
         <thead>
           <tr>
             <th className="py-2 px-4 border-b text-center">Amount</th>

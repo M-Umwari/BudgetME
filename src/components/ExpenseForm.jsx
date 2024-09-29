@@ -12,7 +12,7 @@ export function ExpenseForm({ addExpense }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white rounded px-8 pt-6 pb-8 mb-4">
+    <form onSubmit={handleSubmit} className="sub-container rounded px-8 pt-6 pb-8 mb-4">
       <h2 className="text-2xl font-bold mb-4">Add Expense</h2>
       <div className="mb-4">
         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="amount">

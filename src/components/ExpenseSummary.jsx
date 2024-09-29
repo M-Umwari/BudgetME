@@ -3,10 +3,9 @@ import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Balance } from './Balance';
 
-
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export function ExpenseSummary({ expenses, budgetLimits,currency, setCurrency }) {
+export function ExpenseSummary({ expenses, budgetLimits, currency, setCurrency }) {
   const categoryTotals = expenses.reduce((acc, expense) => {
     acc[expense.category] = (acc[expense.category] || 0) + parseFloat(expense.amount);
     return acc;
@@ -42,11 +41,18 @@ export function ExpenseSummary({ expenses, budgetLimits,currency, setCurrency })
     maintainAspectRatio: false
   };
 
+  // Check if there's data for the Pie chart
+  const hasData = data.datasets[0].data.length > 0;
+
   return (
-    <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <div className="sub-container shadow-md rounded px-8 pt-6 pb-8 mb-4">
       <h2 className="text-2xl font-bold mb-4">Expense Summary</h2>
-      <div style={{ height: '300px' }}>
-        <Pie data={data} options={options} />
+      <div style={hasData ? { height: '300px' } : {height: '50px'}}>
+        {hasData ? (
+          <Pie data={data} options={options} />
+        ) : (
+          <p className="text-white">No expenses to display.</p>
+        )}
       </div>
       <div className="mt-4">
         <h3 className="text-xl font-bold mb-2">Budget Alerts</h3>
@@ -62,7 +68,7 @@ export function ExpenseSummary({ expenses, budgetLimits,currency, setCurrency })
           return null;
         })}
       </div>
-      <Balance expenses={expenses} budgetLimits={budgetLimits} currency={currency} setCurrency={setCurrency}/>
+      <Balance expenses={expenses} budgetLimits={budgetLimits} currency={currency} setCurrency={setCurrency} />
     </div>
   );
 }

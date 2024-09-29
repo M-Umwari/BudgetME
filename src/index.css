@@ -10,17 +10,21 @@
 }
 
 body {
-  background-color: white;
+  background-color: rgb(240, 140, 47);
   color: #333;
   line-height: 1.6;
   padding: 20px;
+}
+
+.sub-container{
+  background-color: rgb(180, 78, 41);
 }
 
 .container {
   max-width: 900px;
   margin: 0 auto;
   padding: 20px;
-  background-color: ;
+  background-color: transparent ;
   border-radius: 8px;
 }
 
@@ -59,16 +63,21 @@ button:hover {
 
 input {
   border: none; 
-  background-color: #f8f9fa;
+  background-color: #d69c66;
   padding: 10px;
   border-radius: 5px;
   outline: none; 
   transition: background-color 0.3s; 
+  color: black;
 
 }
 
+input::placeholder{
+  color: black;
+}
+
 input:focus {
-  background-color: #eaeaea;
+  background-color: #d3c1c1;
 }
 
 .expense-list {
@@ -83,7 +92,7 @@ input:focus {
   border: 1px solid #ddd;
   border-radius: 8px;
   margin-bottom: 10px;
-  background-color: #f8f9fa;
+  background-color: #ea7eee;
   transition: transform 0.3s ease;
 }
 
