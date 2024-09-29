@@ -38,7 +38,14 @@ export function ExpenseSummary({ expenses, budgetLimits, currency, setCurrency }
 
   const options = {
     responsive: true,
-    maintainAspectRatio: false
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        labels: {
+          color: 'white' 
+        }
+      }
+    }
   };
 
   // Check if there's data for the Pie chart
